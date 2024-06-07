@@ -1,0 +1,38 @@
+name: Repository Domain Scanner
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: 'Repository to scan'
+        required: true
+      batch-uuid:
+        description:
+
+jobs:
+  scanner:
+    name: Public Domain Scanner
+    runs-on: aexp-medium
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Step 2 - Checkout GHA Repository
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          repository: amex-ghactions/${{ inputs.repository }}
+          token: ${{ secrets.SVC_GITHUB_TOKEN }}
+          path: './repository_for_scan'
+          
+      - name: Step 3 - Domain Scan
+        run: |
+          cd repository_for_scan
+          ls
+          docker image build -t ${{ inputs.repository }}:latest .
+          docker save ${{ inputs.repository }}:latest -o image.tar
+          python3 ../src/domain-scanner.py pwd ${{ inputs.repository }}
+      - name: Step 4 - Save Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.repository }}-${{ inputs.batch-uuid }}
+          path: /runner/_work/gh-dev-utilities/gh-dev-utilities/repository_for_scan/${{ inputs.repository }}.csv
+
