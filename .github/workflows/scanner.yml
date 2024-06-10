@@ -34,5 +34,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ inputs.repository }}-${{ inputs.batch-uuid }}
-          path: /runner/_work/gh-dev-utilities/gh-dev-utilities/repository_for_scan/${{ inputs.repository }}.csv
+          path: /home/runner/work/domain-scanner/domain-scanner/repository_for_scan/${{ inputs.repository }}.csv
 
