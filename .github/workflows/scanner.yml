@@ -11,7 +11,7 @@ on:
 jobs:
   scanner:
     name: Public Domain Scanner
-    runs-on: aexp-medium
+    runs-on: self-hosted
     steps:
       - name: Step 1 - Checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
