@@ -33,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ inputs.repository }}
-          path: /home/runner/work/domain-scanner/domain-scanner/repository_for_scan/${{ inputs.repository }}.csv
+          path: /runner/work/domain-scanner/domain-scanner/repository_for_scan/${{ inputs.repository }}.csv
 
