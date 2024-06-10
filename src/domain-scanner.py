@@ -27,7 +27,6 @@ with open(f'{sys.argv[1]}.csv', 'w', newline='') as system_audit_log:
                             m = re.search('https?://([A-Za-z_0-9.-]+).*', line)
                             if m:
                                 clean_path = file_path.split("repository_for_scan")[1]
-                                print(clean_path)
                                 system_audit_log.write(f"{clean_path},  {line_num}, {m.group(1)}\n")
                     except Exception as ex:
                         print(f"Could not parse file {file_path}")
