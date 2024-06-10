@@ -32,6 +32,6 @@ jobs:
       - name: Step 4 - Save Results
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.repository }}
-          path: runner/work/domain-scanner/domain-scanner/repository_for_scan/${{ inputs.repository }}.csv
+          name: 'test'
+          path: /runner/work/domain-scanner/domain-scanner/repository_for_scan/test.csv
 
