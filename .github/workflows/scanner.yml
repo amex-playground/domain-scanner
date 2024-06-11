@@ -28,6 +28,8 @@ jobs:
           ls
           docker image build -t ${{ inputs.repository }}:latest .
           docker save ${{ inputs.repository }}:latest -o image.tar
+          tar -xvf image.tar -C ./repository_for_scan
+          cd ./repository_for_scan/layers
           python3 ../src/domain-scanner.py pwd ${{ inputs.repository }}
       - name: Step 4 - Save Results
         uses: actions/upload-artifact@v3
