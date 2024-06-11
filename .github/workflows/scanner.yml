@@ -31,7 +31,7 @@ jobs:
           tar -xvf image.tar
           pwd
           ls
-          python3 ../src/domain-scanner.py pwd ${{ inputs.repository }}
+          python3 ../src/domain-scanner.py ${{ inputs.repository }}
           pwd 
           ls
       - name: Step X
