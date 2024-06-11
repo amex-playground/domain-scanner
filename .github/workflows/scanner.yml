@@ -29,7 +29,11 @@ jobs:
           docker image build -t ${{ inputs.repository }}:latest .
           docker save ${{ inputs.repository }}:latest -o image.tar
           tar -xvf image.tar
+          pwd
+          ls
           python3 ../src/domain-scanner.py pwd ${{ inputs.repository }}
+          pwd 
+          ls
       - name: Step X
         run: |
           cd repository_for_scan
