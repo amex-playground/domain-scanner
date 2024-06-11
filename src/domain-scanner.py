@@ -4,7 +4,7 @@ import sys
 
 file_path = os.getcwd()
 
-print(file_path)
+print("FILE PATH --->", file_path)
 with open(f'{sys.argv[1]}.csv', 'w', newline='') as system_audit_log:
     system_audit_log.write("File Path, Line Number, Domain Found\n")
     target_dir = file_path
