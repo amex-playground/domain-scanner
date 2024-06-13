@@ -1,4 +1,4 @@
-name: Repository Domain Scanner
+name: Docker Based Action Domain Scanner
 on:
   workflow_dispatch:
     inputs:
